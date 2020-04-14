@@ -190,6 +190,7 @@ var Body = {
    * Removes the component and all physics and scene side effects.
    */
   remove: function () {
+    this.pause();
     if (this.body) {
       delete this.body.el;
       delete this.body;
