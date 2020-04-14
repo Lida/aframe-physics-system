@@ -115,6 +115,12 @@ var Body = {
     }
 
     this.shouldUpdateBody = true;
+
+    if (!this.isLoaded) {
+      this.isLoaded = true;
+      this.el.emit('body-loaded', {body: this.el.body});
+    }
+
   },
 
   tick: function () {
