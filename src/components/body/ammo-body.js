@@ -333,6 +333,11 @@ let AmmoBody = {
    * Removes the component and all physics and scene side effects.
    */
   remove: function() {
+    if (this.addedToSystem) {
+      this.system.removeComponent(this);
+      this.system.removeBody(this.body);
+      this.addedToSystem = false;
+    }
     if (this.triMesh) Ammo.destroy(this.triMesh);
     if (this.localScaling) Ammo.destroy(this.localScaling);
     if (this.compoundShape) Ammo.destroy(this.compoundShape);
